@@ -1,4 +1,4 @@
-baseURL: https://bousetravels.local/
+# baseURL: https://bousetravels.local/
 title: Bouse Travel Advisors
 # Copyright, the {year} is the placeholder of this year.
 copyright: "Copyright © 2024-{year} Bouse Travel Advisors"
