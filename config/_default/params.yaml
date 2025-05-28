@@ -1,5 +1,3 @@
-description: The starter theme template of HB (Hugo Bootstrap) Framework.
-
 hb:
   # override SASS variables, please replace the dash with underline, e.g. `list-group-color` should be `list_group_color`.
   # styles:
@@ -11,35 +9,43 @@ hb:
   full_width: false # when true, the layout takes full width globally.
 
   header:
-    brand: HB # the brand name, leave it empty to use site's title.
+    brand: Bouse Travel Advisors # the brand name, leave it empty to use site's title.
     logo_bg: '#712cf9' # logo background color, used by logo with transparent background.
     # see https://hbstack.dev/en/docs/modules/socials/.
     socials:
-      github: hbstack
-      # twitter: razonyang
+      bluesky: bousetravels.world
+      facebook: BouseTravelAdvisors
+      # facebookgroup: "898500375598516"
       rss: true
-      mastodon: https://techhub.social/@hbstack
   footer:
     # see https://hbstack.dev/en/docs/modules/socials/.
     socials:
       _color: true # when false, remove the color of social icons.
-      github: hbstack
-      twitter: razonyang
+      bluesky: bousetravels.world
+      facebook: BouseTravelAdvisors
+      # facebookgroup: "898500375598516"
       rss: true
-      mastodon: https://techhub.social/@hbstack
+    powered_by: false
   terms:
     # the paginate for categories, tags, series list pages.
     paginate: 12
   blog:
     sidebar:
+      social_share_buttons:
+        alignment: center
+        media:
+          - bluesky
+          - twitter
+          - facebook
+          - linkedin
       profile:
         # title: Profile title other than site title.
         # description: Profile description other than site description.
-        company: COMPANY
-        location: Earth
+        # company: Bouse Travel Advisors
+        location: St Cloud, FL
         socials:
-          github: hbstack
-          mastodon: https://techhub.social/@hbstack
+          bluesky: bousetravels.world
+          facebook: BouseTravelAdvisors
           rss: true
       posts:
         recent_count: 5 # the number of recent posts.
@@ -58,24 +64,37 @@ hb:
         - docs
         - blog
         - tutorials
-    giscus:
-      repo: hbstack/theme
-      repo_id: R_kgDOJP3qtA
-      category_id: DIC_kwDOJP3qtM4CVavM
+    # giscus:
+    #   repo: hbstack/theme
+    #   repo_id: R_kgDOJP3qtA
+    #   category_id: DIC_kwDOJP3qtM4CVavM
   docs:
-    giscus:
-      repo: hbstack/theme
-      repo_id: R_kgDOJP3qtA
-      category_id: DIC_kwDOJP3qtM4CVavM
+    # giscus:
+    #   repo: hbstack/theme
+    #   repo_id: R_kgDOJP3qtA
+    #   category_id: DIC_kwDOJP3qtM4CVavM
   content_panel:
     repo:
       service: github # github or gitlab.
-      repo: hbstack/theme
+      repo: ugns/bousetravels-hugo-site
       branch: main
-      # subpath: exampleSite
-  # gallery:
-  #   thumbnail_size: "x640"
-
+  gallery:
+    date_sort_order: asc
+    highlight_images_count: 10
+    highlight_images_recursive: false
+    paginate: 12
+    thumbnail_size: "x640"
+  google_fonts:
+    families:
+      - name: Lato
+  styles:
+    hb_gallery_album_item_border_radius: 15px
+    hb_gallery_album_item_gap: 10px
+  back_to_top:
+    # icon_name: arrow-up-circle-fill
+    icon_name: caret-up-square-fill
+  contact:
+    endpoint: https://formspree.io/f/mblonorn
 seo:
   favicons: # see https://hugomods.com/en/docs/seo/#favicons-module
     icon: images/logo.png # use logo as favicon.

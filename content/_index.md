@@ -1,5 +1,5 @@
 ---
-title: HB Theme Template
+title: Bouse Travel Advisors
 # menu:
 #   main:
 #     name: Home
