@@ -1,5 +1,6 @@
 ---
 title: Bouse Travel Advisors
+# layout: landing
 # menu:
 #   main:
 #     name: Home
