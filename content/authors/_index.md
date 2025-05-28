@@ -1,12 +1,12 @@
 ---
-title: Authors
+title: Advisors
 menu:
   main:
     parent: blog
     params:
       icon:
         vendor: bs
-        name: pencil
+        name: person-circle
         color: '#0f5e97'
-      description: Authors list.
+      description: Advisor list.
 ---

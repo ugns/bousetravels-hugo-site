@@ -43,6 +43,7 @@ require (
 	github.com/hbstack/featured-image v0.2.2 // indirect
 	github.com/hbstack/footer v0.4.1 // indirect
 	github.com/hbstack/footer/modules/socials v0.3.0 // indirect
+	github.com/hbstack/form v0.2.0 // indirect
 	github.com/hbstack/gallery v0.13.1 // indirect
 	github.com/hbstack/gallery/modules/breadcrumb v0.1.1 // indirect
 	github.com/hbstack/google-fonts v0.1.1 // indirect
@@ -64,6 +65,7 @@ require (
 	github.com/hbstack/search v0.2.2 // indirect
 	github.com/hbstack/slide v0.4.1 // indirect
 	github.com/hbstack/snackbar v0.1.2 // indirect
+	github.com/hbstack/social-share-buttons v0.6.0 // indirect
 	github.com/hbstack/socials v0.18.0 // indirect
 	github.com/hbstack/syntax-highlighting v0.2.1 // indirect
 	github.com/hbstack/syntax-highlighting/styles/gruvbox v0.1.2 // indirect
@@ -90,6 +92,7 @@ require (
 	github.com/hugomods/masonry-js v0.1.0 // indirect
 	github.com/hugomods/mermaid v0.1.4 // indirect
 	github.com/hugomods/pwa v0.9.0 // indirect
+	github.com/hugomods/recaptcha-v2 v0.1.1 // indirect
 	github.com/hugomods/search v0.20.0 // indirect
 	github.com/hugomods/search-index v0.1.2 // indirect
 	github.com/hugomods/seo/modules/alternatives v0.1.1 // indirect
