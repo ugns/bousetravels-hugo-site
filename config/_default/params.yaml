@@ -91,7 +91,6 @@ hb:
     hb_gallery_album_item_border_radius: 15px
     hb_gallery_album_item_gap: 10px
   back_to_top:
-    # icon_name: arrow-up-circle-fill
     icon_name: caret-up-square-fill
   contact:
     endpoint: https://formspree.io/f/mblonorn
