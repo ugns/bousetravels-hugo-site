@@ -5,7 +5,8 @@ draft: false
 description: "Explore the unbeatable advantages of cruise vacations compared to land-based trips. From convenience to value, here’s why cruising is worth considering."
 tags: ["travel", "cruises", "vacation tips", "cruise vs land vacation"]
 categories: ["Travel"]
-author: jbouse
+authors: 
+  - jbouse
 ---
 
 Planning a vacation? You’ve probably faced the classic travel question: **Should I take a cruise or book a land-based getaway?**
