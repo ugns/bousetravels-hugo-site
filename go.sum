@@ -42,6 +42,8 @@ github.com/hbstack/blog/modules/social-share-buttons v0.1.1 h1:9o/TjUPpK3MZGnjEC
 github.com/hbstack/blog/modules/social-share-buttons v0.1.1/go.mod h1:ofLDQclqvR8vCztqv118x62SEAF2/pgYEd8VBumpKzY=
 github.com/hbstack/blog/modules/toc-scrollspy v0.2.0 h1:UgA7UxoHTOzFDRp1XxhCmCNiSZlfpXqyEBnkPMCMjsM=
 github.com/hbstack/blog/modules/toc-scrollspy v0.2.0/go.mod h1:61D0fK0cilgwUzQm4fhVqfAc0cFYkvTE4pVSP6+FvHI=
+github.com/hbstack/blog/modules/utterances v0.1.20 h1:yqUWcQ4b+iim2SfQMxrR5boYAEZbvqCQimgZjv9b+2s=
+github.com/hbstack/blog/modules/utterances v0.1.20/go.mod h1:ya0bG3E3k5CReWC+Sz1mxhBYsqDCH7Ij6X90x6r2gBA=
 github.com/hbstack/bootstrap v0.2.2 h1:Kiy+XEiyDvH9KVfuS7uWYTDoTLbiww0PWTheEXO/fdM=
 github.com/hbstack/bootstrap v0.2.2/go.mod h1:2Qd2g72fKgje8fCMSaz8KlKIv60c6PAak59Zg2FJHs0=
 github.com/hbstack/breadcrumb v0.8.0 h1:Yli5Rmf+z7AfRoj4GoXHqSy4X0e7tlbPd9/vPlOGTWY=
