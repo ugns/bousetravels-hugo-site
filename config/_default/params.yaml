@@ -55,6 +55,7 @@ hb:
         limit: 10 # the maximum number of the item.
     paginate: 12 # paginate.
     post_thumbnail_placeholder: HB THEME # the text of thumbnail placeholder, default to site title.
+    post_thumbnail_default: images/logo.png
     # post_thumbnail: false # whether to show the thumbnails.
     # post_date_format: ":date_long" # see https://gohugo.io/functions/dateformat/#datetime-formatting-layouts.
     home: # homepage settings.
@@ -91,13 +92,19 @@ hb:
     hb_gallery_album_item_border_radius: 15px
     hb_gallery_album_item_gap: 10px
   back_to_top:
-    # icon_name: arrow-up-circle-fill
     icon_name: caret-up-square-fill
   contact:
     endpoint: https://formspree.io/f/mblonorn
 seo:
   favicons: # see https://hugomods.com/en/docs/seo/#favicons-module
     icon: images/logo.png # use logo as favicon.
+    sizes:
+    - size: 16x16
+    - size: 32x32
+    - size: 150x150
+    - rel: apple-touch-icon
+      size: 180x180
+    - size: 192x192
 
 # PWA settings, see https://hugomods.com/en/docs/pwa/#site-parameters.
 # The PWA was disabled on development environment. Set `hugopress.modules.pwa.disable` as `false`
@@ -118,7 +125,7 @@ search:
   stall_threshold: 300
   min_match_char_length: 2
   case_sensitive: false
-  # shortcut_search: ["/"]
+  shortcut_search: ["/"]
 
 mermaid:
   # replace it with other CDNs or self-hosted URLs.

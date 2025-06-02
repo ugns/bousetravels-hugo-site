@@ -1,34 +1,46 @@
-# main:
-#   - name: Contact Us
-#     identifier: support
-#     weight: 100
-#     url: https://github.com/hbstack
-#     params:
-#       header: The HB support community.
-#       icon:
-#         vendor: font-awesome-solid
-#         name: headset
+main:
+  - name: Book Travel
+    identifier: support
+    url: https://jeremybouse.inteletravel.com
+    weight: 80
+    params:
+      icon: 
+        vendor: bs
+        name: passport
+      description: My travel booking portal.
 
-#   - name: Documentation
-#     parent: support
-#     url: https://hbstack.dev/
-#     weight: 1
-#     params:
-#       icon:
-#         vendor: bs
-#         name: book
-#         className: text-primary
-#       description: The documentation.
+  - name: Viator Tours
+    parent: support
+    url: https://www.viator.com/?pid=P00011640&uid=U00595707&mcid=58086&currency=USD
+    weight: 10
+    params:
+      icon:
+        vendor: bs
+        name: calendar-event
+        color: green
+      description: Viator booking portal.
 
-#   - name: GitHub
-#     parent: support
-#     url: https://github.com/hbstack
-#     weight: 11
-#     params:
-#       icon:
-#         vendor: fab
-#         name: github
-#       description: The code repository.
+  - name: Virgin Voyages
+    parent: support
+    url: https://www.virginvoyages.com/book/voyage-planner/find-a-voyage?cabins=1&currencyCode=USD&agentId=204567&agencyId=354&bookingChannel=FMLINK
+    weight: 11
+    params:
+      icon:
+        vendor: fas
+        name: ship
+        color: red
+      description: Virgin Voyages booking portal.
+
+  - name: Shore Excursions
+    parent: support
+    url: https://www.shoreexcursionsgroup.com/?id=81171&data=bousetravel@undergrid.net
+    weight: 12
+    params:
+      icon:
+        vendor: bs
+        name: calendar-event
+        color: blue
+      description: Shore Excursions booking portal.
 
 #   - name: Discussion
 #     parent: support

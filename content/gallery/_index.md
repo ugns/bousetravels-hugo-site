@@ -2,9 +2,10 @@
 title: Gallery
 menu:
   main:
+    identifier: gallery
     weight: 50
     params:
       icon:
-        vendor: fas
+        vendor: bs
         name: images
 ---
