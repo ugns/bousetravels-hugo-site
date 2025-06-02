@@ -37,7 +37,8 @@ imports:
   # blog comments engine
   # - path: github.com/hbstack/blog/modules/giscus
   # - path: github.com/hbstack/blog/modules/disqus
-  - path: github.com/hbstack/blog/modules/utterances
+  # - path: github.com/hbstack/blog/modules/utterances
+  - path: github.com/hbstack/blog/modules/emote
 
   # blog table of contents scrollspy
   - path: github.com/hbstack/blog/modules/toc-scrollspy

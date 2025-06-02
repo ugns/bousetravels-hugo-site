@@ -16,6 +16,7 @@ require (
 	github.com/hbstack/blog v0.40.2 // indirect
 	github.com/hbstack/blog/modules/breadcrumb v0.1.23 // indirect
 	github.com/hbstack/blog/modules/content-panel v0.1.21 // indirect
+	github.com/hbstack/blog/modules/emote v0.1.0 // indirect
 	github.com/hbstack/blog/modules/featured-image v0.2.21 // indirect
 	github.com/hbstack/blog/modules/heading-sign v0.1.23 // indirect
 	github.com/hbstack/blog/modules/post-nav v0.4.0 // indirect
@@ -25,7 +26,6 @@ require (
 	github.com/hbstack/blog/modules/sidebar/taxonomies v0.5.0 // indirect
 	github.com/hbstack/blog/modules/social-share-buttons v0.1.1 // indirect
 	github.com/hbstack/blog/modules/toc-scrollspy v0.2.0 // indirect
-	github.com/hbstack/blog/modules/utterances v0.1.20 // indirect
 	github.com/hbstack/bootstrap v0.2.2 // indirect
 	github.com/hbstack/breadcrumb v0.8.0 // indirect
 	github.com/hbstack/bs-tooltip v0.1.1 // indirect
@@ -47,6 +47,7 @@ require (
 	github.com/hbstack/form v0.2.0 // indirect
 	github.com/hbstack/gallery v0.13.1 // indirect
 	github.com/hbstack/gallery/modules/breadcrumb v0.1.1 // indirect
+	github.com/hbstack/giscus v0.1.1 // indirect
 	github.com/hbstack/google-fonts v0.1.1 // indirect
 	github.com/hbstack/hb v0.16.2 // indirect
 	github.com/hbstack/header v0.16.6 // indirect

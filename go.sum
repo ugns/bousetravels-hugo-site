@@ -24,6 +24,8 @@ github.com/hbstack/blog/modules/breadcrumb v0.1.23 h1:MgUR88vv4cs/M1/cVBKUInFw3D
 github.com/hbstack/blog/modules/breadcrumb v0.1.23/go.mod h1:smQySqXDtUv2pP7bb+XBr+QGNFxhDGN0fLmQkOIWa5g=
 github.com/hbstack/blog/modules/content-panel v0.1.21 h1:g43IVjn3O6QCQSvCbgr9iYCgZcI5XG8YAiuVPb269Ok=
 github.com/hbstack/blog/modules/content-panel v0.1.21/go.mod h1:fVnvVtnfo3R78jnGLgckfC43j7rYMMN+l1PhU9E6Jas=
+github.com/hbstack/blog/modules/emote v0.1.0 h1:IgEm93fxhEbgEVp9kWvTA9gr4MY8Nn2b89c+JvgQMpY=
+github.com/hbstack/blog/modules/emote v0.1.0/go.mod h1:ouhDRQHpajmOqI/5XX4OYRD87AZ3oe1I5uDyj/RCgEU=
 github.com/hbstack/blog/modules/featured-image v0.2.21 h1:G4nwll995EsnEAJOBUKJMjH12HtJ0YFPL0nH8m7qneI=
 github.com/hbstack/blog/modules/featured-image v0.2.21/go.mod h1:+gxtGAEh7aXDDKQA0wWzdi9HPLcqCSRtRp63F+NN8QU=
 github.com/hbstack/blog/modules/heading-sign v0.1.23 h1:Z6QZvCKER/O3Y0eXQtRtkICEzYllFZW0m5fkT5OXrTE=
@@ -42,8 +44,6 @@ github.com/hbstack/blog/modules/social-share-buttons v0.1.1 h1:9o/TjUPpK3MZGnjEC
 github.com/hbstack/blog/modules/social-share-buttons v0.1.1/go.mod h1:ofLDQclqvR8vCztqv118x62SEAF2/pgYEd8VBumpKzY=
 github.com/hbstack/blog/modules/toc-scrollspy v0.2.0 h1:UgA7UxoHTOzFDRp1XxhCmCNiSZlfpXqyEBnkPMCMjsM=
 github.com/hbstack/blog/modules/toc-scrollspy v0.2.0/go.mod h1:61D0fK0cilgwUzQm4fhVqfAc0cFYkvTE4pVSP6+FvHI=
-github.com/hbstack/blog/modules/utterances v0.1.20 h1:yqUWcQ4b+iim2SfQMxrR5boYAEZbvqCQimgZjv9b+2s=
-github.com/hbstack/blog/modules/utterances v0.1.20/go.mod h1:ya0bG3E3k5CReWC+Sz1mxhBYsqDCH7Ij6X90x6r2gBA=
 github.com/hbstack/bootstrap v0.2.2 h1:Kiy+XEiyDvH9KVfuS7uWYTDoTLbiww0PWTheEXO/fdM=
 github.com/hbstack/bootstrap v0.2.2/go.mod h1:2Qd2g72fKgje8fCMSaz8KlKIv60c6PAak59Zg2FJHs0=
 github.com/hbstack/breadcrumb v0.8.0 h1:Yli5Rmf+z7AfRoj4GoXHqSy4X0e7tlbPd9/vPlOGTWY=
@@ -86,6 +86,8 @@ github.com/hbstack/gallery v0.13.1 h1:4raqbENd7EjTM7ump0EItIAkYQQFhnUwQ35e7wgh+4
 github.com/hbstack/gallery v0.13.1/go.mod h1:SlO4eo4aoLjjTfrqEnTEr6ocabHrqZjclWDCI1bUY+o=
 github.com/hbstack/gallery/modules/breadcrumb v0.1.1 h1:hPP+FuHcBo2nieDA3eY/f7714JBe/egECb6TRnmPHTo=
 github.com/hbstack/gallery/modules/breadcrumb v0.1.1/go.mod h1:LdbDrxkgYlIOn/x9HFrde+mpIagFayRuLjIDXL1zCHw=
+github.com/hbstack/giscus v0.1.1 h1:jKbA17XjAcbD59QIDUVoFOdbi9P2WzQMtOcIpG/Znuo=
+github.com/hbstack/giscus v0.1.1/go.mod h1:XElW8oNLnS0dRVFzoo9Gq8xknvz3D2PuTHC7yw9h3EE=
 github.com/hbstack/google-fonts v0.1.1 h1:rw9lsHL0x9a7olFh/9gWI+X5sRAf30DM5bzwP/L9aYg=
 github.com/hbstack/google-fonts v0.1.1/go.mod h1:4Xn7/i4MRPs0wDuYTIvCJvNfAMIC5vMJ4gNIWM3Vg24=
 github.com/hbstack/hb v0.16.2 h1:4hUaWygXmZA26cToXj/hXmMuQzsprNdkBuE4Rs7eIYc=
