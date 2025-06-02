@@ -65,8 +65,6 @@ hb:
         - docs
         - blog
         - tutorials
-    utterances:
-      repo: ugns/bousetravels-hugo-site
     # giscus:
     #   repo: hbstack/theme
     #   repo_id: R_kgDOJP3qtA
