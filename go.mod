@@ -33,7 +33,7 @@ require (
 	github.com/hbstack/code-block-panel v0.1.2 // indirect
 	github.com/hbstack/contact v0.3.0 // indirect
 	github.com/hbstack/content-panel v0.10.2 // indirect
-	github.com/hbstack/docs v0.23.0 // indirect
+	github.com/hbstack/docs v0.23.1 // indirect
 	github.com/hbstack/docs/modules/breadcrumb v0.1.10 // indirect
 	github.com/hbstack/docs/modules/content-panel v0.1.8 // indirect
 	github.com/hbstack/docs/modules/doc-nav v0.3.7 // indirect
