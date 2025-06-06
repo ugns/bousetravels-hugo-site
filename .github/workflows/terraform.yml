@@ -1,0 +1,91 @@
+name: Terraform Infrastructure
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request_target:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'terraform/**'
+    types: [assigned, opened, synchronize, reopened]
+
+env:
+  AWS_GITHUB_OIDC_ROLE: ${{ secrets.AWS_MGMT_ROLE_ARN }}
+  AWS_GITHUB_ACTIONS_ROLE: ${{ secrets.AWS_GITHUB_ROLE_ARN }}
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
+defaults:
+  run:
+    shell: bash
+  
+jobs:
+  terraform:
+    name: Deploy Terraform Infrastructure as Code
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: terraform/
+  
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume:  ${{ env.AWS_GITHUB_OIDC_ROLE }}
+        aws-region: us-east-1
+
+    - name: Debug OIDC Claims
+      uses: github/actions-oidc-debugger@main
+      with:
+        audience: '${{ github.server_url }}/${{ github.repository_owner }}'
+
+    - name: Terraform Format
+      id: fmt
+      run: terraform fmt -no-color -check
+      continue-on-error: true
+
+    - name: Terraform Init
+      id: init
+      run: terraform init -no-color -backend-config="key=${{ github.repository }}/terraform.tfstate"
+    
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate -no-color
+    
+    - name: Terraform Plan
+      id: plan
+      env:
+        TF_VAR_gh_action_role: ${{ env.AWS_GITHUB_ACTIONS_ROLE }}
+      run: terraform plan -out .planfile
+
+    - name: Post PR comment
+      if: github.event_name == 'pull_request' || github.ref == 'refs/heads/develop'
+      uses: borchero/terraform-plan-comment@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        planfile: .planfile
+        working-directory: terraform/
+
+    - name: Terraform Plan Status
+      if: steps.plan.outcome == 'failure'
+      run: exit 1
+
+    - name: Terraform Apply
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      env:
+        TF_VAR_gh_action_role: ${{ env.AWS_GITHUB_ACTIONS_ROLE }}
+      run: terraform apply -no-color -auto-approve .planfile

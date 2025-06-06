@@ -4,3 +4,5 @@ package-json.lock
 public/
 node_modules/
 resources/_gen/
+.terraform
+.terraform.lock.hcl
