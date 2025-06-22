@@ -30,14 +30,14 @@ hb:
     # the paginate for categories, tags, series list pages.
     paginate: 12
   blog:
+    social_share_buttons:
+      alignment: center
+      media:
+        - bluesky
+        - twitter
+        - facebook
+        - linkedin
     sidebar:
-      social_share_buttons:
-        alignment: center
-        media:
-          - bluesky
-          - twitter
-          - facebook
-          - linkedin
       profile:
         # title: Profile title other than site title.
         # description: Profile description other than site description.

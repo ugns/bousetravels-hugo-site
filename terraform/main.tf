@@ -27,15 +27,8 @@ resource "aws_amplify_branch" "main" {
   app_id                      = aws_amplify_app.website.id
   branch_name                 = "main"
   stage                       = "PRODUCTION"
-  enable_pull_request_preview = false
-  framework                   = "Web"
-}
-
-resource "aws_amplify_branch" "beta" {
-  app_id                      = aws_amplify_app.website.id
-  branch_name                 = "develop"
-  stage                       = "BETA"
   enable_pull_request_preview = true
+  framework                   = "Web"
 }
 
 resource "aws_amplify_domain_association" "website" {
@@ -52,10 +45,4 @@ resource "aws_amplify_domain_association" "website" {
     branch_name = aws_amplify_branch.main.branch_name
     prefix      = ""
   }
-
-  sub_domain {
-    branch_name = aws_amplify_branch.beta.branch_name
-    prefix      = "beta"
-  }
-
 }

@@ -13,7 +13,7 @@ require (
 	github.com/hbstack/background-image v0.2.1 // indirect
 	github.com/hbstack/base v0.6.2 // indirect
 	github.com/hbstack/bigger-picture v0.10.1 // indirect
-	github.com/hbstack/blog v0.40.3 // indirect
+	github.com/hbstack/blog v0.42.1 // indirect
 	github.com/hbstack/blog/modules/breadcrumb v0.1.23 // indirect
 	github.com/hbstack/blog/modules/content-panel v0.1.21 // indirect
 	github.com/hbstack/blog/modules/emote v0.1.0 // indirect
@@ -76,7 +76,7 @@ require (
 	github.com/henrygd/bigger-picture v1.1.19 // indirect
 	github.com/hugomods/ascii v0.1.0 // indirect
 	github.com/hugomods/base v0.7.3 // indirect
-	github.com/hugomods/bootstrap v0.23.0 // indirect
+	github.com/hugomods/bootstrap v0.24.1 // indirect
 	github.com/hugomods/code-block-panel v0.8.0 // indirect
 	github.com/hugomods/font-awesome v6.7.1+incompatible // indirect
 	github.com/hugomods/fuse-js v0.1.0 // indirect
@@ -89,7 +89,7 @@ require (
 	github.com/hugomods/icons/vendors/font-awesome v0.6.12 // indirect
 	github.com/hugomods/icons/vendors/simple-icons v1.1.1 // indirect
 	github.com/hugomods/idb-js v0.1.0 // indirect
-	github.com/hugomods/images v0.12.1 // indirect
+	github.com/hugomods/images v0.12.3 // indirect
 	github.com/hugomods/katex v0.3.6 // indirect
 	github.com/hugomods/masonry-js v0.1.0 // indirect
 	github.com/hugomods/mermaid v0.1.4 // indirect
@@ -110,6 +110,6 @@ require (
 	github.com/hugomods/workbox v0.1.0 // indirect
 	github.com/jakearchibald/idb v8.0.3+incompatible // indirect
 	github.com/krisk/Fuse v7.1.0+incompatible // indirect
-	github.com/twbs/bootstrap v5.3.6+incompatible // indirect
+	github.com/twbs/bootstrap v5.3.7+incompatible // indirect
 	github.com/twbs/icons v1.13.1 // indirect
 )
