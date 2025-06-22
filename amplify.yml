@@ -51,15 +51,18 @@ frontend:
             case "$AWS_BRANCH" in
               main|master)
                 export HUGO_BASEURL="https://$BASEURL"
+                export HUGO_FUTURE=""
                 ;;
               *)
                 export HUGO_BASEURL="https://$AWS_BRANCH.$BASEURL"
+                export HUGO_FUTURE="-F"
                 ;;
             esac
           else
             export HUGO_BASEURL="/"
+            export HUGO_FUTURE=""
           fi
-          hugo --gc --cleanDestinationDir --enableGitInfo --minify --baseURL "$HUGO_BASEURL"
+          hugo --gc --cleanDestinationDir --enableGitInfo --minify $HUGO_FUTURE --baseURL "$HUGO_BASEURL"
   artifacts:
     baseDirectory: public
     files:
