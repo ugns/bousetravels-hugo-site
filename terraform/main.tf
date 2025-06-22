@@ -3,12 +3,10 @@ resource "aws_amplify_app" "website" {
   repository = var.repository
 
   platform                    = "WEB"
-  enable_auto_branch_creation = true
-  enable_branch_auto_deletion = true
-  auto_branch_creation_patterns = [
-    "*",
-    "*/**",
-  ]
+
+  environment_variables = {
+    BASEURL = var.domain_name
+  }
 
   custom_rule {
     source = "/.well-known/<*>"
@@ -44,5 +42,9 @@ resource "aws_amplify_domain_association" "website" {
   sub_domain {
     branch_name = aws_amplify_branch.main.branch_name
     prefix      = ""
+  }
+
+  lifecycle {
+    ignore_changes = [sub_domain]
   }
 }

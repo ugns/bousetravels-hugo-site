@@ -46,7 +46,20 @@ frontend:
         - git config --add core.quotepath false
     build:
       commands:
-        - hugo --gc --cleanDestinationDir --enableGitInfo --minify
+        - |
+          if [ -n "$BASEURL" ]; then
+            case "$AWS_BRANCH" in
+              main|master)
+                export HUGO_BASEURL="https://$BASEURL"
+                ;;
+              *)
+                export HUGO_BASEURL="https://$AWS_BRANCH.$BASEURL"
+                ;;
+            esac
+          else
+            export HUGO_BASEURL="/"
+          fi
+          hugo --gc --cleanDestinationDir --enableGitInfo --minify --baseURL "$HUGO_BASEURL"
   artifacts:
     baseDirectory: public
     files:
