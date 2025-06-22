@@ -11,7 +11,7 @@ resource "aws_amplify_app" "website" {
   ]
 
   environment_variables = {
-    BASE_URL = var.domain_name
+    BASEURL = var.domain_name
   }
 
   custom_rule {

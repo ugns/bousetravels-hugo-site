@@ -47,12 +47,15 @@ frontend:
     build:
       commands:
         - |
-          if [ -n "$BASE_URL" ]; then
-            if [ "$AWS_BRANCH" != "main" ] && [ "$AWS_BRANCH" != "master" ]; then
-              export HUGO_BASEURL="https://$AWS_BRANCH.$BASE_URL"
-            else
-              export HUGO_BASEURL="https://$BASE_URL"
-            fi
+          if [ -n "$BASEURL" ]; then
+            case "$AWS_BRANCH" in
+              main|master)
+                export HUGO_BASEURL="https://$BASEURL"
+                ;;
+              *)
+                export HUGO_BASEURL="https://$AWS_BRANCH.$BASEURL"
+                ;;
+            esac
           else
             export HUGO_BASEURL="/"
           fi
