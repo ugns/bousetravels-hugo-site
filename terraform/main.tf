@@ -10,6 +10,10 @@ resource "aws_amplify_app" "website" {
     "*/**",
   ]
 
+  environment_variables = {
+    BASE_URL = var.domain_name
+  }
+
   custom_rule {
     source = "/.well-known/<*>"
     status = "200"
