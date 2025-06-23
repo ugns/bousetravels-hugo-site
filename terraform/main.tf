@@ -103,7 +103,7 @@ resource "aws_lambda_function" "amplify_redeploy" {
   role             = aws_iam_role.lambda_exec.arn
   source_code_hash = archive_file.amplify_redeploy_lambda.output_base64sha256
   timeout          = 150 # 2 minutes 30 seconds
-  description      = "Scheduled redeployment of the Amplify app ${aws_amplify_app.website.name}"
+  description      = "Scheduled redeployment of the Amplify app ${aws_amplify_app.website.name}:${aws_amplify_branch.main.branch_name}"
   environment {
     variables = {
       AMPLIFY_APP_ID      = aws_amplify_app.website.id
