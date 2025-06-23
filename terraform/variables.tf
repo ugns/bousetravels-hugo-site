@@ -23,3 +23,9 @@ variable "aliases" {
   type        = list(string)
   default     = []
 }
+
+variable "amplify_redeploy_schedule_expression" {
+  description = "The schedule expression for the Amplify redeploy event rule (default: every day at 6am UTC)"
+  type        = string
+  default     = "cron(0 6 * * ? *)"
+}
