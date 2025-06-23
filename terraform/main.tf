@@ -2,7 +2,7 @@ resource "aws_amplify_app" "website" {
   name       = var.domain_name
   repository = var.repository
 
-  platform                    = "WEB"
+  platform = "WEB"
 
   environment_variables = {
     BASEURL = var.domain_name
