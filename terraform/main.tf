@@ -78,6 +78,13 @@ resource "aws_iam_role_policy" "lambda_amplify" {
       },
       {
         Action = [
+          "amplify:ListJobs"
+        ],
+        Effect   = "Allow",
+        Resource = "${aws_amplify_app.website.arn}/branches/${aws_amplify_branch.main.branch_name}/jobs/*"
+      },
+      {
+        Action = [
           "logs:CreateLogGroup",
           "logs:CreateLogStream",
           "logs:PutLogEvents"
