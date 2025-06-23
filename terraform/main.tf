@@ -48,3 +48,83 @@ resource "aws_amplify_domain_association" "website" {
     ignore_changes = [sub_domain]
   }
 }
+
+resource "aws_iam_role" "lambda_exec" {
+  name = "amplify-redeploy-lambda-exec-${aws_amplify_app.website.id}"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [{
+      Action = "sts:AssumeRole",
+      Effect = "Allow",
+      Principal = {
+        Service = "lambda.amazonaws.com"
+      }
+    }]
+  })
+}
+
+resource "aws_iam_role_policy" "lambda_amplify" {
+  name = "amplify-redeploy-lambda-policy-${aws_amplify_app.website.id}"
+  role = aws_iam_role.lambda_exec.id
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Action = [
+          "amplify:StartJob"
+        ],
+        Effect   = "Allow",
+        Resource = "${aws_amplify_app.website.arn}/*"
+      },
+      {
+        Action = [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        Effect   = "Allow",
+        Resource = "*"
+      }
+    ]
+  })
+}
+
+resource "archive_file" "amplify_redeploy_lambda" {
+  type        = "zip"
+  source_file = "${path.module}/amplify_redeploy_lambda.py"
+  output_path = "${path.module}/amplify_redeploy_lambda.zip"
+}
+
+resource "aws_lambda_function" "amplify_redeploy" {
+  filename         = archive_file.amplify_redeploy_lambda.output_path
+  function_name    = "amplify-redeploy-${aws_amplify_app.website.id}"
+  handler          = "amplify_redeploy_lambda.lambda_handler"
+  runtime          = "python3.12"
+  role             = aws_iam_role.lambda_exec.arn
+  source_code_hash = archive_file.amplify_redeploy_lambda.output_base64sha256
+  environment {
+    variables = {
+      AMPLIFY_APP_ID      = aws_amplify_app.website.id
+      AMPLIFY_BRANCH_NAME = aws_amplify_branch.main.branch_name
+    }
+  }
+}
+
+resource "aws_cloudwatch_event_rule" "amplify_redeploy_schedule" {
+  name                = "amplify-redeploy-schedule-${aws_amplify_app.website.id}"
+  schedule_expression = var.amplify_redeploy_schedule_expression
+}
+
+resource "aws_cloudwatch_event_target" "amplify_redeploy_lambda" {
+  rule      = aws_cloudwatch_event_rule.amplify_redeploy_schedule.name
+  target_id = "amplify-redeploy-${aws_amplify_app.website.id}"
+  arn       = aws_lambda_function.amplify_redeploy.arn
+}
+
+resource "aws_lambda_permission" "allow_eventbridge" {
+  statement_id  = "AllowExecutionFromEventBridge"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.amplify_redeploy.function_name
+  principal     = "events.amazonaws.com"
+  source_arn    = aws_cloudwatch_event_rule.amplify_redeploy_schedule.arn
+}
