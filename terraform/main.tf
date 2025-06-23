@@ -102,6 +102,7 @@ resource "aws_lambda_function" "amplify_redeploy" {
   runtime          = "python3.12"
   role             = aws_iam_role.lambda_exec.arn
   source_code_hash = archive_file.amplify_redeploy_lambda.output_base64sha256
+  timeout          = 150 # 2 minutes 30 seconds
   environment {
     variables = {
       AMPLIFY_APP_ID      = aws_amplify_app.website.id
