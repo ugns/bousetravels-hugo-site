@@ -29,7 +29,7 @@ customHeaders:
           font-src 'self' https://fonts.gstatic.com;
           img-src 'self' https://www.gravatar.com https://www.googletagmanager.com data:;
           worker-src 'self';
-          report-uri https://maftkc82.uriports.com/reports/report;
+          report-uri https://maftkc82.uriports.com/reports/enforce;
           report-to default
       - key: Content-Security-Policy-Report-Only
         value: >-
