@@ -2,4 +2,6 @@ feedparser
 openai
 atproto
 requests
-beautifulsoup4
+trafilatura
+lxml
+grapheme

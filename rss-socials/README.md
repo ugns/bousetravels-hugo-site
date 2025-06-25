@@ -16,13 +16,16 @@ This project automates posting new entries from an RSS feed to Bluesky, generati
 - Bluesky account and app password
 - OpenAI API key
 - RSS feed URL
+- `trafilatura` and `lxml` are now required for Open Graph metadata extraction (replacing BeautifulSoup).
+- The script will check both the current `SEEN_FILE` and the legacy `.github/seen_rss_posts.txt` for deduplication, using whichever exists.
+- OpenAI summary generation uses the `web_search_preview` tool for richer, context-aware posts.
 
 ## Installation
 
 1. Clone this repository.
 2. Install dependencies:
    ```bash
-   pip install feedparser openai atproto requests beautifulsoup4
+   pip install -r rss-socials/requirements.txt
    ```
 
 ## Configuration
@@ -32,6 +35,7 @@ Set the following environment variables (in your CI/CD secrets or locally):
 - `BLUESKY_APP_PASSWORD`: Your Bluesky app password.
 - `OPENAI_API_KEY`: Your OpenAI API key.
 - `SEEN_FILE`: (Optional) Path to the file used for deduplication. Defaults to `seen_rss_posts.txt` if not set.
+- `POST_AGE_LIMIT_DAYS`: (Optional) Maximum age (in days) for RSS entries to be posted. Defaults to 7 if not set.
 
 ## Usage
 
@@ -44,15 +48,15 @@ Or use the provided GitHub Actions workflow for scheduled/automated runs.
 
 ## How It Works
 1. **Fetches RSS entries** and loads the set of already-posted links.
-2. **For each new entry** (not seen and published within the last 7 days):
-   - Generates a summary using OpenAI.
+2. **For each new entry** (not seen and published within the last `POST_AGE_LIMIT_DAYS`):
+   - Generates a summary using OpenAI. If OpenAI returns `Content not suitable for posting`, the entry is skipped and not marked as seen.
    - Fetches page metadata (title, description, image) for a social card.
    - Uploads the image as a blob to Bluesky (if available).
    - Posts to Bluesky with hashtags, links, and a rich card.
    - Marks the link as seen.
 
 ## Customization
-- Edit the prompt in `generate_summary()` to change the style or length of the generated post.
+- Edit the `POST_INSTRUCTIONS_TEMPLATE` variable in the script to change the style, length, or requirements of the generated post prompt for OpenAI.
 - Adjust the deduplication logic or time window as needed.
 
 ## Troubleshooting
