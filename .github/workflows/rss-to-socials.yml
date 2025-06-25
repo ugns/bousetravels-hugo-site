@@ -8,6 +8,8 @@ on:
 jobs:
   post-to-socials:
     runs-on: ubuntu-latest
+    env:
+      SEEN_FILE: ${{ vars.SEEN_FILE || '.github/seen_rss_posts.txt' }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -20,29 +22,22 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install feedparser openai atproto requests beautifulsoup4
+          pip install -r rss-socials/requirements.txt
 
-      - name: Restore seen_rss_posts.txt cache
+      - name: Restore and save seen_rss_posts.txt cache
         uses: actions/cache@v4
         with:
-          path: .github/seen_rss_posts.txt
-          key: seen-rss-posts-${{ runner.os }}
+          path: ${{ env.SEEN_FILE }}
+          key: seen-rss-posts-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
             seen-rss-posts-
 
-      - name: Run rss-to-social script
+      - name: Run rss-to-bluesky script
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
           RSS_FEED_URL: ${{ vars.RSS_FEED_URL }}
+          SEEN_FILE: ${{ env.SEEN_FILE }}
         run: |
-          python .github/rss-to-social.py
-
-      - name: Save seen_rss_posts.txt cache
-        uses: actions/cache@v4
-        with:
-          path: .github/seen_rss_posts.txt
-          key: seen-rss-posts-${{ runner.os }}-${{ github.run_id }}
-          restore-keys: |
-            seen-rss-posts-
+          python rss-socials/rss-to-bluesky.py

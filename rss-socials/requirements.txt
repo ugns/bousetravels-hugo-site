@@ -1,0 +1,5 @@
+feedparser
+openai
+atproto
+requests
+beautifulsoup4

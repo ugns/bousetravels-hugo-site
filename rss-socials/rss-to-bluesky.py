@@ -11,8 +11,8 @@ from bs4 import BeautifulSoup
 
 # --- CONFIGURATION ---
 RSS_FEED_URL = os.getenv("RSS_FEED_URL")
-SEEN_FILE = ".github/seen_rss_posts.txt"
-
+SEEN_FILE = os.getenv("SEEN_FILE", "seen_rss_posts.txt")
+OLD_SEEN_FILE = ".github/seen_rss_posts.txt"
 
 # --- FUNCTIONS ---
 def fetch_rss_entries(feed_url):
@@ -144,10 +144,14 @@ def post_to_bluesky(message, link):
 
 
 def load_seen_links():
-    if not os.path.exists(SEEN_FILE):
-        return set()
-    with open(SEEN_FILE, "r") as f:
-        return set(line.strip() for line in f if line.strip())
+    # Check SEEN_FILE, then fallback to OLD_SEEN_FILE if not found
+    if os.path.exists(SEEN_FILE):
+        with open(SEEN_FILE, "r") as f:
+            return set(line.strip() for line in f if line.strip())
+    elif os.path.exists(OLD_SEEN_FILE):
+        with open(OLD_SEEN_FILE, "r") as f:
+            return set(line.strip() for line in f if line.strip())
+    return set()
 
 
 def save_seen_links(seen_links):
