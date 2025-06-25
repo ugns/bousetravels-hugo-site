@@ -24,7 +24,7 @@ def generate_summary(platform, link):
 
     response = client.responses.create(
         model="gpt-4.1-mini",
-        instructions=f"You are writing a social media post on {platform} for the following link",
+        instructions=f"You are writing a social media post on {platform} for the following link that is no longer than allowed by the platform. Include a brief summary of the content and a call to action to read more. If the content is not suitable for posting, respond with 'Content not suitable for posting'.",
         input=link
     )
     return response.output_text.strip()
