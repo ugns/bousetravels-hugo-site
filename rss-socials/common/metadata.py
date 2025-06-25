@@ -1,9 +1,19 @@
 import trafilatura
 from lxml import html
 from urllib.parse import urljoin
+from typing import Optional, Dict
 
 
-def fetch_page_metadata(url):
+def fetch_page_metadata(url: str) -> Optional[Dict[str, str]]:
+    """
+    Fetch Open Graph metadata from a given URL using trafilatura for fetching
+    and lxml for parsing the HTML content.
+
+    Args:
+        url: The URL of the page to fetch metadata from.
+    Returns:
+        A dictionary of Open Graph metadata, or None if the fetch fails.
+    """
     downloaded = trafilatura.fetch_url(url)
     if not downloaded:
         return None

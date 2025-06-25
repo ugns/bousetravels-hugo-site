@@ -1,12 +1,13 @@
 import os
 import grapheme
 from openai import OpenAI
+from typing import Optional
 
 POST_INSTRUCTIONS_TEMPLATE = """
 Generate a {platform} post for my latest blog post.
 
 The post must:
-- Be under 300 graphemes
+- Be under {max_graphemes} graphemes
 - Contain no more than three hashtags
 - Entice the audience to click on the link without revealing all content
 
@@ -17,22 +18,43 @@ respond only with: 'Content not suitable for posting'.
 """
 
 
-def validate_openai_env():
+def validate_openai_env() -> None:
+    """Raise an error if required OpenAI environment variables are missing."""
     required_vars = ["OPENAI_API_KEY"]
     missing = [var for var in required_vars if not os.getenv(var)]
     if missing:
         raise EnvironmentError(f"Missing required OpenAI environment variables: {', '.join(missing)}")
 
 
-def generate_summary(platform, link, max_graphemes=300, max_retries=3):
+def generate_summary(
+    platform: str,
+    link: str,
+    max_graphemes: int = 300,
+    max_retries: int = 3
+) -> Optional[str]:
+    """
+    Generate a summary for a blog post using OpenAI, ensuring it fits within a grapheme limit.
+
+    Args:
+        platform: The name of the platform (e.g., 'Bluesky').
+        link: The URL to summarize.
+        max_graphemes: Maximum allowed graphemes in the summary.
+        max_retries: Number of times to retry if the summary is too long.
+
+    Returns:
+        The generated summary string, or None if content is not suitable for posting.
+    Raises:
+        EnvironmentError: If the OpenAI API key is missing.
+        RuntimeError: If OpenAI does not return any output after retries.
+    """
     validate_openai_env()
     api_key = os.getenv("OPENAI_API_KEY")
     client = OpenAI(api_key=api_key)
-    output = None
+    output: Optional[str] = None
     for attempt in range(1, max_retries + 1):
         response = client.responses.create(
             model="gpt-4.1-mini",
-            instructions=POST_INSTRUCTIONS_TEMPLATE.format(platform=platform),
+            instructions=POST_INSTRUCTIONS_TEMPLATE.format(platform=platform, max_graphemes=max_graphemes),
             tools=[{"type": "web_search_preview"}],
             input=link
         )

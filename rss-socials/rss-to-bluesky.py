@@ -12,7 +12,24 @@ OLD_SEEN_FILE = ".github/seen_rss_posts.txt"
 POST_AGE_LIMIT_DAYS = int(os.getenv("POST_AGE_LIMIT_DAYS", "7"))
 
 
-def main():
+def validate_main_env() -> None:
+    """
+    Raise an error if required main environment variables are missing.
+    """
+    required_vars = ["RSS_FEED_URL"]
+    missing = [var for var in required_vars if not os.getenv(var)]
+    if missing:
+        raise EnvironmentError(f"Missing required environment variables: {', '.join(missing)}")
+
+
+def main() -> None:
+    """
+    Main entry point for the RSS to Bluesky automation script.
+    Validates environment, fetches new RSS entries, generates summaries, and posts to Bluesky.
+    """
+    validate_main_env()
+    if RSS_FEED_URL is None:
+        raise ValueError("RSS_FEED_URL environment variable is not set.")
     entries = fetch_rss_entries(RSS_FEED_URL)
     seen_links = load_seen_links(SEEN_FILE, OLD_SEEN_FILE)
     now = datetime.now(timezone.utc)
@@ -37,4 +54,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except EnvironmentError as e:
+        print(f"Error: {e}")

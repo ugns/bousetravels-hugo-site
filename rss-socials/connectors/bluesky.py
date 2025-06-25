@@ -2,9 +2,19 @@ import os
 from atproto import Client, DidInMemoryCache, IdResolver, client_utils, models
 from urllib.parse import urlparse
 import requests
+from typing import Any, Callable, Optional
 
 
-def parse_hashtags_and_links(message):
+def parse_hashtags_and_links(message: str) -> Any:
+    """
+    Build a TextBuilder object, tagging hashtags and linking URLs in the message.
+
+    Args:
+        message: The message string to parse.
+
+    Returns:
+        A TextBuilder object with hashtags and links tagged.
+    """
     import re
     tb = client_utils.TextBuilder()
     last_idx = 0
@@ -24,7 +34,17 @@ def parse_hashtags_and_links(message):
     return tb
 
 
-def create_bluesky_embed(meta, client):
+def create_bluesky_embed(meta: Optional[dict], client: Any) -> Optional[Any]:
+    """
+    Create a Bluesky external embed with optional image blob.
+
+    Args:
+        meta: Open Graph metadata dictionary.
+        client: The Bluesky client instance.
+
+    Returns:
+        An embed object or None if creation fails.
+    """
     thumb_blob = None
     if meta and 'og:image' in meta:
         try:
@@ -55,19 +75,36 @@ def create_bluesky_embed(meta, client):
     return embed
 
 
-def validate_bluesky_env():
+def validate_bluesky_env() -> None:
+    """
+    Raise an error if required Bluesky environment variables are missing.
+    """
     required_vars = ["BLUESKY_HANDLE", "BLUESKY_APP_PASSWORD"]
     missing = [var for var in required_vars if not os.getenv(var)]
     if missing:
         raise EnvironmentError(f"Missing required Bluesky environment variables: {', '.join(missing)}")
 
 
-def post_to_bluesky(message, link, fetch_page_metadata):
+def post_to_bluesky(
+    message: str,
+    link: str,
+    fetch_page_metadata: Callable[[str], Optional[dict]]
+) -> None:
+    """
+    Post a message to Bluesky, including a social card embed if available.
+
+    Args:
+        message: The post content.
+        link: The URL to include in the post.
+        fetch_page_metadata: Function to fetch Open Graph metadata for the link.
+
+    Raises:
+        EnvironmentError: If required Bluesky environment variables are missing.
+        Exception: For errors during posting.
+    """
     validate_bluesky_env()
     handle = os.getenv("BLUESKY_HANDLE")
     app_password = os.getenv("BLUESKY_APP_PASSWORD")
-    if not handle or not app_password:
-        raise ValueError("Bluesky credentials not set in environment variables")
     try:
         cache = DidInMemoryCache()
         resolver = IdResolver(cache=cache)
