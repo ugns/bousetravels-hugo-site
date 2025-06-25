@@ -41,3 +41,7 @@ customHeaders:
         value: must-revalidate, public, max-age=3600, s-maxage=3600
       - key: Access-Control-Allow-Origin
         value: '*'
+  - pattern: '*.xml'
+    headers:
+      - key: Content-Type
+        value: "application/xml"
