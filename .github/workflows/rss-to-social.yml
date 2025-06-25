@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install feedparser openai atproto
+          pip install feedparser openai atproto requests beautifulsoup4
 
       - name: Restore seen_rss_posts.txt cache
         uses: actions/cache@v4
