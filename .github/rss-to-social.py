@@ -5,7 +5,7 @@ import requests
 from openai import OpenAI
 from datetime import datetime, timezone, timedelta
 from atproto import Client, DidInMemoryCache, IdResolver, client_utils, models
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 from pprint import pprint
 from bs4 import BeautifulSoup
 
@@ -73,6 +73,11 @@ def fetch_page_metadata(url, timeout=10):
             desc_tag2 = soup.find("meta", attrs={"name": "description"})
             desc = get_meta_content(desc_tag2)
         image = get_meta_content(soup.find("meta", property="og:image"))
+        # Ensure image is a string before checking or joining
+        if image:
+            image = str(image)
+            if not image.lower().startswith("http"):
+                image = urljoin(url, image)
         return str(title), str(desc), str(image)
     except Exception as e:
         print(f"[Metadata] Error fetching metadata for {url}: {e}")
