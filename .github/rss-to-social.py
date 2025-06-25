@@ -3,6 +3,7 @@ import os
 from openai import OpenAI
 from datetime import datetime, timezone, timedelta
 from atproto import Client, DidInMemoryCache, IdResolver
+import time
 
 # --- CONFIGURATION ---
 RSS_FEED_URL = os.getenv("RSS_FEED_URL")
@@ -69,16 +70,10 @@ def main():
     for entry in entries:
         link = entry.get("link", "")
         pub_date = None
-        pub_date_str = entry.get("pubDate", "")
-        if pub_date_str:
-            try:
-                pub_date = datetime.strptime(pub_date_str, "%a, %d %b %Y %H:%M:%S %z")  # type: ignore
-                if pub_date.tzinfo is None:
-                    pub_date = pub_date.replace(tzinfo=timezone.utc)
-                else:
-                    pub_date = pub_date.astimezone(timezone.utc)
-            except (AttributeError, TypeError, ValueError):
-                pub_date = None
+        # Use feedparser's published_parsed if available, ensure type is struct_time
+        published_parsed = getattr(entry, "published_parsed", None)
+        if published_parsed and isinstance(published_parsed, time.struct_time):
+            pub_date = datetime.fromtimestamp(time.mktime(published_parsed), tz=timezone.utc)
         else:
             pub_date = None
 
