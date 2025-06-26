@@ -3,6 +3,6 @@ openai==1.91.0
 atproto==0.0.61
 requests==2.32.4
 trafilatura==2.0.0
-lxml==5.4.0
+lxml==6.0.0
 lxml_html_clean==0.4.2
 grapheme==0.6.0
