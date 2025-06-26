@@ -13,6 +13,9 @@ The post must:
 
 Use an engaging, appropriate tone for {platform}.
 
+Do not include the link in the post if needed to keep under graphemes limit;
+it will be added automatically as an external embed.
+
 If the linked content is inappropriate, offensive, broken, or otherwise unsuitable for public sharing,
 respond only with: 'Content not suitable for posting'.
 """

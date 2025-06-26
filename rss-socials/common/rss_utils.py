@@ -32,6 +32,9 @@ def parse_entry_link_and_date(entry: Any) -> Tuple[str, Optional[datetime]]:
     link = entry.get("link", "")
     published_parsed = getattr(entry, "published_parsed", None)
     pub_date = None
+    # Check for 'published_parsed' or 'updated_parsed'
+    if not published_parsed:
+        published_parsed = getattr(entry, "updated_parsed", None)
     if published_parsed and isinstance(published_parsed, time.struct_time):
         pub_date = datetime.fromtimestamp(time.mktime(published_parsed), tz=timezone.utc)
     return link, pub_date
