@@ -2,6 +2,6 @@ feedparser==6.0.11
 openai==1.30.5
 atproto==0.0.61
 requests==2.32.4
-trafilatura==1.7.3
+trafilatura==1.12.2
 lxml==5.2.2
 grapheme==0.6.0
