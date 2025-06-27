@@ -1,5 +1,5 @@
 feedparser==6.0.11
-openai==1.91.0
+openai==1.93.0
 atproto==0.0.61
 requests==2.32.4
 trafilatura==2.0.0
