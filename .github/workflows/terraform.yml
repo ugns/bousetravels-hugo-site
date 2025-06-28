@@ -26,7 +26,6 @@ defaults:
   
 jobs:
   terraform:
-    name: Deploy Terraform Infrastructure as Code
     runs-on: ubuntu-latest
 
     defaults:
