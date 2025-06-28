@@ -47,7 +47,7 @@ jobs:
           BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
         run: |
-          rss2socials bluesky \
+          rss2socials \
             --feed-url "${{ vars.RSS_FEED_URL }}" \
             --seen-file "${{ env.SEEN_FILE }}" \
             --platform bluesky
