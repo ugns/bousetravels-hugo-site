@@ -24,6 +24,8 @@ tags:
   - summer
 images:
   - /images/4th-of-july-fireworks.jpg
+authors: 
+  - jbouse
 ---
 
 The 4th of July is just around the corner, but it’s not too late to plan an unforgettable celebration! Whether you’re craving dazzling fireworks, lively parades, or unique local traditions, there are plenty of destinations across the U.S. that deliver patriotic fun—even for last-minute travelers.
