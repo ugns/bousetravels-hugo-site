@@ -9,9 +9,15 @@ resource "aws_amplify_app" "website" {
   }
 
   custom_rule {
+    source = "/.well-known/atproto-did"
+    status = "200"
+    target = "/well-known/atproto-did.txt"
+  }
+
+  custom_rule {
     source = "/.well-known/<*>"
     status = "200"
-    target = "/well-known/<*>.txt"
+    target = "/well-known/<*>"
   }
 
   custom_rule {
@@ -35,7 +41,7 @@ resource "aws_amplify_domain_association" "website" {
   enable_auto_sub_domain = true
 
   certificate_settings {
-    custom_certificate_arn = data.aws_acm_certificate.this.arn
+    custom_certificate_arn = module.acm_certificate.arn
     type                   = "CUSTOM"
   }
 
