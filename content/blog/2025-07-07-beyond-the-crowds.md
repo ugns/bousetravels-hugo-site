@@ -21,6 +21,8 @@ tags:
   - authentic experiences
 images:
   - /images/european-hidden-gems.jpg
+authors: 
+  - jbouse
 ---
 
 Dreaming of a European summer but dreading the crowds? Step off the beaten path and discover the continent’s best-kept secrets—charming towns and regions where you can soak up local culture, savor authentic cuisine, and enjoy a slower pace, all without the tourist throngs.

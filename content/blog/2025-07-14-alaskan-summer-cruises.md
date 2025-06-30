@@ -22,6 +22,8 @@ tags:
   - travel tips
 images:
   - /images/alaska-cruise.jpg
+authors: 
+  - jbouse
 ---
 
 Alaska’s summer cruise season is a dream for travelers seeking wild beauty, dramatic landscapes, and unforgettable wildlife encounters. Whether you’re a first-timer or a seasoned cruiser, choosing the right itinerary and ship can make all the difference. Here’s a connoisseur’s guide to planning the ultimate Alaskan cruise.

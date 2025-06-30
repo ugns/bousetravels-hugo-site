@@ -22,6 +22,8 @@ tags:
   - summer travel
 images:
   - /images/national-parks-cool.jpg
+authors: 
+  - jbouse
 ---
 
 When summer temperatures soar, America’s national parks offer a refreshing escape—if you know where to go. From misty rainforests to glacier-fed lakes and breezy coastlines, these parks promise adventure and comfort even in the hottest months. Here’s your guide to the coolest national park experiences for summer.
