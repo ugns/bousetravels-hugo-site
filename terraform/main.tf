@@ -35,7 +35,7 @@ resource "aws_amplify_domain_association" "website" {
   enable_auto_sub_domain = true
 
   certificate_settings {
-    custom_certificate_arn = data.aws_acm_certificate.this.arn
+    custom_certificate_arn = module.acm_certificate.arn
     type                   = "CUSTOM"
   }
 

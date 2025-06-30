@@ -1,3 +1,8 @@
+import {
+  to = module.acm_certificate.aws_acm_certificate.default[0]
+  id = data.aws_acm_certificate.this.arn
+}
+
 module "acm_certificate" {
   source  = "cloudposse/acm-request-certificate/aws"
   version = "0.18.0"
