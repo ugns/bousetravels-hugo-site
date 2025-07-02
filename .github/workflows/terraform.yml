@@ -7,8 +7,6 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - 'terraform/**'
     types: [assigned, opened, synchronize, reopened]
 
 env:
