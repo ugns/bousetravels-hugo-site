@@ -105,7 +105,7 @@ resource "aws_iam_role_policy" "lambda_amplify" {
 resource "archive_file" "amplify_redeploy" {
   type        = "zip"
   source_file = "${path.module}/lambda/amplify_redeploy.py"
-  output_path = "${path.root}/.terraform/tmp/amplify_redeploy.zip"
+  output_path = "${path.root}/.terraform/amplify_redeploy.zip"
 }
 
 resource "aws_lambda_function" "amplify_redeploy" {
