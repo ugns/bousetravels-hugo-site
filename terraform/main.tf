@@ -104,14 +104,14 @@ resource "aws_iam_role_policy" "lambda_amplify" {
 
 resource "archive_file" "amplify_redeploy_lambda" {
   type        = "zip"
-  source_file = "${path.module}/amplify_redeploy_lambda.py"
-  output_path = "${path.module}/amplify_redeploy_lambda.zip"
+  source_file = "${path.module}/lambda/amplify_redeploy.py"
+  output_path = "${path.tmp}/amplify_redeploy.zip"
 }
 
 resource "aws_lambda_function" "amplify_redeploy" {
   filename         = archive_file.amplify_redeploy_lambda.output_path
   function_name    = "amplify-redeploy-${aws_amplify_app.website.id}"
-  handler          = "amplify_redeploy_lambda.lambda_handler"
+  handler          = "amplify_redeploy.lambda_handler"
   runtime          = "python3.12"
   role             = aws_iam_role.lambda_exec.arn
   source_code_hash = archive_file.amplify_redeploy_lambda.output_base64sha256
