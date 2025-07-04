@@ -102,19 +102,19 @@ resource "aws_iam_role_policy" "lambda_amplify" {
   })
 }
 
-resource "archive_file" "amplify_redeploy_lambda" {
+resource "archive_file" "amplify_redeploy" {
   type        = "zip"
   source_file = "${path.module}/lambda/amplify_redeploy.py"
   output_path = "${path.root}/.terraform/tmp/amplify_redeploy.zip"
 }
 
 resource "aws_lambda_function" "amplify_redeploy" {
-  filename         = archive_file.amplify_redeploy_lambda.output_path
+  filename         = archive_file.amplify_redeploy.output_path
   function_name    = "amplify-redeploy-${aws_amplify_app.website.id}"
   handler          = "amplify_redeploy.lambda_handler"
   runtime          = "python3.12"
   role             = aws_iam_role.lambda_exec.arn
-  source_code_hash = archive_file.amplify_redeploy_lambda.output_base64sha256
+  source_code_hash = archive_file.amplify_redeploy.output_base64sha256
   timeout          = 150 # 2 minutes 30 seconds
   description      = "Scheduled redeployment of the Amplify app ${aws_amplify_app.website.name}:${aws_amplify_branch.main.branch_name}"
   environment {
