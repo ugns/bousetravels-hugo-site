@@ -25,6 +25,10 @@ defaults:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    
+    concurrency:
+      group: terraform-${{ github.ref }}
+      cancel-in-progress: false
 
     defaults:
       run:
