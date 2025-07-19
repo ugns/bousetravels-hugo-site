@@ -1,128 +1,93 @@
 merge_queue:
   max_parallel_checks: 3
-
 queue_rules:
   - name: default
-    # This rule is the default queue rule for Mergify.
-    # It is applied to all pull requests unless overridden by a more specific rule.
-    # It defines the conditions under which pull requests are queued for merging.
     batch_size: 5
     batch_max_wait_time: 5 minutes
     queue_conditions:
       - or:
-        - "#approved-reviews-by>=1"
-        - author=jbouse
+          - "#approved-reviews-by>=1"
+          - author=jbouse
       - -draft
       - "#review-threads-unresolved = 0"
     merge_conditions:
       - check-success=terraform
       - check-success=AWS Amplify Console Web Preview
-
 pull_request_rules:
   - name: delete head branch after merge but not if other PRs depend on it
-    # This rule deletes the head branch of a PR after it is merged.
-    # It ensures that the branch is only deleted if there are no other PRs depending on it.
-    # This helps keep the repository clean and avoids cluttering with unused branches.
-    # The `force: false` option ensures that the branch is not deleted if it has
-    # other PRs that depend on it, preventing accidental loss of work.
     conditions:
       - merged
     actions:
       delete_head_branch:
         force: false
-  
   - name: add python label if a Python file is modified
-    # This rule adds a label to the PR if any Python files are modified.
-    # It helps categorize the PR based on the type of files changed.
-    # The label 'python' is added to the PR.
-    # It is useful for identifying changes related to Python code.
     conditions:
       - files ~= \.py$
     actions:
       label:
         add:
           - python
-  
   - name: add terraform label if a Terraform file is modified
-    # This rule adds a label to the PR if any Terraform files are modified.
-    # It helps categorize the PR based on the type of files changed.
-    # The label 'terraform' is added to the PR.
-    # It is useful for identifying infrastructure changes.
     conditions:
       - files ~= \.tf$
     actions:
       label:
         add:
           - terraform
-
   - name: add github-actions label if a GitHub Actions file is modified
-    # This rule adds a label to the PR if any GitHub Actions workflow files are modified.
-    # It helps categorize the PR based on the type of files changed.
-    # The label 'github-actions' is added to the PR.
-    # It is useful for identifying changes related to CI/CD workflows.
     conditions:
       - files ~= \.github/workflows/
     actions:
       label:
         add:
           - github-actions
-
   - name: add blog label if a blog content is modified
-    # This rule adds a label to the PR if any blog content files are modified.
-    # It helps categorize the PR based on the type of files changed.
-    # The label 'blog' is added to the PR.
-    # It is useful for identifying changes related to blog posts.
     conditions:
       - files ~= ^content/blog/
     actions:
       label:
         add:
           - blog
-
   - name: add news label if a news content is modified
-    # This rule adds a label to the PR if any news content files are modified.
-    # It helps categorize the PR based on the type of files changed.
-    # The label 'news' is added to the PR.
-    # It is useful for identifying changes related to news updates.
     conditions:
       - files ~= ^content/news/
     actions:
       label:
         add:
           - news
-
   - name: add authors label if an authors content is modified
-    # This rule adds a label to the PR if any authors content files are modified.
-    # It helps categorize the PR based on the type of files changed.
-    # The label 'authors' is added to the PR.
-    # It is useful for identifying changes related to author profiles.
     conditions:
       - files ~= ^content/authors/
     actions:
       label:
         add:
           - authors
-  
   - name: add renovate label if the author is Renovate Bot
-    # This rule adds a label to the PR if the author is Renovate Bot.
-    # It helps identify PRs created by Renovate for dependency updates.
-    # The label 'renovate' is added to the PR.
-    # It is useful for tracking automated dependency updates.
     conditions:
       - author = renovate[bot]
     actions:
       label:
         add:
           - renovate
-
   - name: add dependabot label if the author is Dependabot
-    # This rule adds a label to the PR if the author is Dependabot.
-    # It helps identify PRs created by Dependabot for dependency updates.
-    # The label 'dependabot' is added to the PR.
-    # It is useful for tracking automated dependency updates.
     conditions:
       - author = dependabot[bot]
     actions:
       label:
         add:
           - dependabot
+merge_protections:
+  - name: Enforce conventional commit
+    description: Make sure that we follow https://www.conventionalcommits.org/en/v1.0.0/
+    if:
+      - base = main
+    success_conditions:
+      - "title ~=
+        ^(fix|feat|docs|style|refactor|perf|test|build|ci|chore|revert)(?:\\(.+\
+        \\))?:"
+  - name: Do not merge outdated PRs
+    description: Make sure PRs are almost up to date before merging
+    if:
+      - base = main
+    success_conditions:
+      - "#commits-behind <= 10"
