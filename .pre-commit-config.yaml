@@ -3,7 +3,6 @@ repos:
     hooks:
       - id: resize-jpgs
         name: Resize JPGs in assets/images
-        entry: python assets/images/resize_jpgs.py
+        entry: .venv/bin/python assets/images/resize_jpgs.py
         language: system
         files: ^assets/images/.*\.jpg$
-        staged: true
