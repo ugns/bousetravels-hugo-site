@@ -1,5 +1,9 @@
 name: Terraform Infrastructure
 
+concurrency:
+  group: terraform-state
+  cancel-in-progress: false
+
 on:
   push:
     branches:
