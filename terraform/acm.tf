@@ -1,6 +1,6 @@
 module "acm_certificate" {
   source  = "cloudposse/acm-request-certificate/aws"
-  version = "0.18.0"
+  version = "0.18.1"
 
   domain_name                       = aws_route53_zone.this.name
   zone_id                           = aws_route53_zone.this.id
