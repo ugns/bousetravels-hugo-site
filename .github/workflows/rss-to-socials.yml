@@ -12,7 +12,7 @@ jobs:
       SEEN_FILE: ${{ vars.SEEN_FILE || '.github/seen_rss_posts.txt' }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
         uses: actions/setup-python@v5
