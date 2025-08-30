@@ -26,6 +26,7 @@ hb:
       # facebookgroup: "898500375598516"
       rss: true
     powered_by: false
+    site_description: An Independent Travel Agency of InteleTravel
   terms:
     # the paginate for categories, tags, series list pages.
     paginate: 12
