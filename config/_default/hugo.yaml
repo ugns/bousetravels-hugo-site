@@ -1,7 +1,7 @@
 # baseURL: https://bousetravels.local/
 title: Bouse Travel Advisors
 # Copyright, the {year} is the placeholder of this year.
-copyright: "Copyright © 2024-{year} Bouse Travel Advisors"
+copyright: "Copyright © 2024-{year} Bouse Travel Advisors | [Registered Seller of Travel](/legal/registered-seller-of-travel/)"
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false # disable this to remove the default language code from URL, i.e. /en/docs -> /docs.
 enableRobotsTXT: true
