@@ -73,4 +73,9 @@ resources:
       source: College of Disney Knowledge
       caption: Exploring the Walt Disney World Resort
       date: 2025-05-25
+  - src: UOR-Specialist-certificate.png
+    params:
+      source: Universal Destinations & Experiences
+      caption: Universal Orlando Resort Specialist
+      date: 2025-09-01
 ---
