@@ -1,7 +1,7 @@
 github.com/GoogleChrome/workbox v7.3.0+incompatible h1:P0VEW4ZF9li7dLLOsB3wknFhVBym05A7td3x/qWFTZM=
 github.com/GoogleChrome/workbox v7.3.0+incompatible/go.mod h1:dyEoGLpJeO43pUVJb+nNNr1WRgoF81hNEl4UGLV+yow=
-github.com/KaTeX/KaTeX v0.16.22 h1:+CyvN/2mDtqLjGeKRHft2+tQfIgQcc5aWigKHx0egWo=
-github.com/KaTeX/KaTeX v0.16.22/go.mod h1:VI+aE+CVs/VqtbHnuhstfQST46GmrwpXH7LQAzYIouw=
+github.com/KaTeX/KaTeX v0.16.25 h1:y0BfLWCajh+XJlVT867t38VA/lVaOK2IQsopELObs58=
+github.com/KaTeX/KaTeX v0.16.25/go.mod h1:VI+aE+CVs/VqtbHnuhstfQST46GmrwpXH7LQAzYIouw=
 github.com/desandro/masonry v4.2.2+incompatible h1:4LI69kwq5DJSF9jhHVGfCw+q2Nt3IgJ0KzEp19Z3YiA=
 github.com/desandro/masonry v4.2.2+incompatible/go.mod h1:4P4Or5YZcNuAtGW3JOYLTrmi+ZyqhCPj7xTgradMEVU=
 github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20400 h1:L6+F22i76xmeWWwrtijAhUbf3BiRLmpO5j34bgl1ggU=
@@ -92,8 +92,8 @@ github.com/hbstack/google-fonts v0.1.1 h1:rw9lsHL0x9a7olFh/9gWI+X5sRAf30DM5bzwP/
 github.com/hbstack/google-fonts v0.1.1/go.mod h1:4Xn7/i4MRPs0wDuYTIvCJvNfAMIC5vMJ4gNIWM3Vg24=
 github.com/hbstack/hb v0.16.2 h1:4hUaWygXmZA26cToXj/hXmMuQzsprNdkBuE4Rs7eIYc=
 github.com/hbstack/hb v0.16.2/go.mod h1:f17XbKHV29zgwV0OaayneXU1nMXFpQUdBYApAPNjFMo=
-github.com/hbstack/header v0.16.6 h1:t8wUlpXAo7FTYutk1run6Slb8AqfJ3aNlFerZLy3FAw=
-github.com/hbstack/header v0.16.6/go.mod h1:ZfeQNeNWaBeGPBZHtbRz2W9IWkmIoMrpOXoDsoYa/Gg=
+github.com/hbstack/header v0.16.7 h1:iqeHhbo/b4AYhkvzvU63DZRwGPIW/LOKwejDd/hqqlM=
+github.com/hbstack/header v0.16.7/go.mod h1:H9BH5lD/s0VYKwqj9l6rxSyDwG4bJg73MSBftVS5aAc=
 github.com/hbstack/header/modules/language-picker v0.2.0 h1:RcmHUBqDYdWk2CpgwF82cqoeDBLhRU6gq2j73IXe+xw=
 github.com/hbstack/header/modules/language-picker v0.2.0/go.mod h1:opUZ/a9pSxmdAj41mv6M854F9u9XxbEsxUfQuNZx4DU=
 github.com/hbstack/header/modules/search v0.1.38 h1:B+deLNUyn1F6DiEEIviu1IlOnykaQ1YEezOa8kljSsM=
@@ -152,6 +152,8 @@ github.com/hugomods/font-awesome v6.7.1+incompatible h1:eM2vtHyQJVMnD9tgdGFbEgEi
 github.com/hugomods/font-awesome v6.7.1+incompatible/go.mod h1:C2wW6xDvHkcMlJMVTPQ+Npt+rO0OGv13xT1iyll2z2Q=
 github.com/hugomods/fuse-js v0.1.0 h1:CmWHBZANvjOP44RDNQNLntqlLf9GLqeM29jekxTNcPE=
 github.com/hugomods/fuse-js v0.1.0/go.mod h1:srCqvtBQR02HS/abTraDU4oINv1D3PljNPdexdoHhpo=
+github.com/hugomods/giscus v0.1.1 h1:Kb8137Cp2nQJPFb6e+CdXy8nyIAJ2dFIymG4bDdaXWI=
+github.com/hugomods/giscus v0.1.1/go.mod h1:tCRkqNi/sMsLh3kjDesXZNzf4R/w+b5oc5boS/l8Jtw=
 github.com/hugomods/google-analytics v0.2.1 h1:591qgcVeqROhPhmI03YPiGXlb0jaIIqXDxy1HCNwD50=
 github.com/hugomods/google-analytics v0.2.1/go.mod h1:Q89C3HmPHn2m2VT1INfnLwkpDyyYRLRIPitLA/aFIy8=
 github.com/hugomods/gravatar v0.2.1 h1:k8YOFvLROJ0kRM9LleKlzm7pms+r5oC0D086ImKyt1A=
