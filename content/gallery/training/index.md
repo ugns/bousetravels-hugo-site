@@ -48,6 +48,11 @@ resources:
       source: College of Disney Knowledge
       caption: Discovering the Enchantment of Aulani Resort
       date: 2024-08-29
+  - src: CollegeofDisneyKnowledge2026.jpg
+    params:
+      source: College of Disney Knowledge
+      caption: College of Disney Knowledge for 2026
+      date: 2026-12-21
   - src: CollegeofDisneyKnowledge2025.jpg
     params:
       source: College of Disney Knowledge
@@ -78,4 +83,15 @@ resources:
       source: Universal Destinations & Experiences
       caption: Universal Orlando Resort Specialist
       date: 2025-09-01
+
+  - src: StateCruiseIndustry2025.jpg
+    params:
+      source: Cruise Lines International Association (CLIA)
+      caption: State of the Cruise Industry 2025
+      date: 2025-08-25
+  - src: CLIA-CCC.jpg
+    params:
+      source: Cruise Lines International Association (CLIA)
+      caption: Certified Cruise Counsellor (CCC)
+      date: 2025-11-14
 ---
