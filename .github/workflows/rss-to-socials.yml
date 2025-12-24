@@ -20,7 +20,7 @@ jobs:
           python-version: '3.x'
 
       - name: Cache pip dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             ~/.cache/pip
@@ -34,7 +34,7 @@ jobs:
           pip install rss2socials
 
       - name: Restore and save seen_rss_posts.txt cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ env.SEEN_FILE }}
           key: seen-rss-posts-${{ runner.os }}-${{ github.run_id }}
