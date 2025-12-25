@@ -37,6 +37,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          POST_AGE_LIMIT_DAYS: 26
         run: |
           rss2socials \
             --feed-url "${{ vars.RSS_FEED_URL }}" \
