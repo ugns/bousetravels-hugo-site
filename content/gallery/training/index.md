@@ -94,4 +94,10 @@ resources:
       source: Cruise Lines International Association (CLIA)
       caption: Certified Cruise Counsellor (CCC)
       date: 2025-11-14
+
+  - src: Dream_Maker_Certificate.png
+    params:
+      source: InteleTravel
+      caption: InteleTravel Dream Maker
+      date: 2026-01-17
 ---
