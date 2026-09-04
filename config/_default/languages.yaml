@@ -1,5 +1,6 @@
 en:
-  language: English
+  label: English
+  locale: en-US
   weight: 1
   params:
     author:
