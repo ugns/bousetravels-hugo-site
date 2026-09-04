@@ -1,3 +1,7 @@
 en:
-  languageName: English
+  label: English
+  locale: en-US
   weight: 1
+  params:
+    author:
+      name: "Jeremy T. Bouse"
