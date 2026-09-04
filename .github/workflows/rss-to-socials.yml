@@ -25,7 +25,7 @@ jobs:
           pip install rss2socials
 
       - name: Restore and save seen_rss_posts.txt cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ env.SEEN_FILE }}
           key: seen-rss-posts-${{ runner.os }}-${{ github.run_id }}
