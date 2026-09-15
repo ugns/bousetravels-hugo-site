@@ -52,7 +52,7 @@ resources:
     params:
       source: College of Disney Knowledge
       caption: College of Disney Knowledge for 2026
-      date: 2026-12-21
+      date: 2025-12-21
   - src: CollegeofDisneyKnowledge2025.jpg
     params:
       source: College of Disney Knowledge
@@ -94,6 +94,11 @@ resources:
       source: Cruise Lines International Association (CLIA)
       caption: Certified Cruise Counsellor (CCC)
       date: 2025-11-14
+  - src: AccessibleCruiseTravel.png
+    params:
+      source: Cruise Lines International Association (CLIA)
+      caption: Accessible Travel Certificate Program
+      date: 2026-08-22
 
   - src: Dream_Maker_Certificate.png
     params:
